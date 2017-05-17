@@ -106,7 +106,8 @@ $jpegify = new Jpegify("your-api-key", "your-api-secret");
 
 ## Usage - Image URL
 
-To optimize an image by providing image URL use the `$jpegify->fromUrl()` method. You will need to provide two mandatory parameters in an array - `url` to the image:
+To optimize an image by providing image URL use the `$jpegify->fromUrl()` method. `$jpegify->fromUrl()->toFile()` method chaining allows you providing source and target in one line. After `$jpegify->fromUrl()` executed, you can call `$jpegify->toFile()` many times. Image will be saved from cache.
+
 
 ````php
 <?php
@@ -119,19 +120,19 @@ $jpegify = new Jpegify("your-api-key", "your-api-secret");
 $result = $jpegify->fromUrl($url)->toFile("optimized.jpg");
 
 //Example #2: Resizing: width:300  height:auto  strategy:scale  
-//$result = $jpegify->fromUrl($url, null, 100, null, 'scale')->toFile("optimized.jpg");
+$result = $jpegify->fromUrl($url, null, 100, null, 'scale')->toFile("optimized.jpg");
 
 //Example #3: Resizing: width:auto height:200  strategy:scale   
-//$result = $jpegify->fromUrl($url, null, null, 200, 'scale')->toFile("optimized.jpg");
+$result = $jpegify->fromUrl($url, null, null, 200, 'scale')->toFile("optimized.jpg");
 
 //Example #4: Resizing: width:400 height:400  strategy:fit  default filling color:#FFFFFF  
-//$result = $jpegify->fromUrl($url, null, 400, 400, 'fit')->toFile("optimized.jpg");
+$result = $jpegify->fromUrl($url, null, 400, 400, 'fit')->toFile("optimized.jpg");
 
 //Example #5: Resizing: width:400 height:400  strategy:fit  filling color:#0de01b
-//$result = $jpegify->fromUrl($url, null, 400, 400, 'fit:#0de01b')->toFile("optimized.jpg");
+$result = $jpegify->fromUrl($url, null, 400, 400, 'fit:#0de01b')->toFile("optimized.jpg");
 
 //Example #6: Resizing: width:640 height:480  strategy:cover
-//$result = $jpegify->fromUrl($url, null, 640, 480, 'cover')->toFile("optimized.jpg");
+$result = $jpegify->fromUrl($url, null, 640, 480, 'cover')->toFile("optimized.jpg");
 
 ````
 
@@ -162,9 +163,7 @@ array(9) {
 
 ## Usage - Image Upload
 
-If you want to upload your images directly to Jpegify API use the `$jpegify->fromFile()` method. You will need to provide two mandatory parameters in an array - `file` which is the absolute path to the file and `wait` or `callback_url`.
-
-In the `$data` array you will find the same optimization properties as with the `url` option above.
+If you want to upload your images directly to Jpegify API use the `$jpegify->fromFile()->toFile()` method. `$jpegify->fromUrl()->toFile()` method chaining allows you providing source and target in one line. After `$jpegify->fromUrl()` executed, you can call `$jpegify->toFile()` many times. Image will be saved from cache.
 
 ````php
 <?php
@@ -179,27 +178,25 @@ $file = "set-your-file-here";
 $result = $jpegify->fromFile($file)->toFile("optimized.jpg");
 
 //Example #2: Resizing: width:300  height:auto  strategy:scale  
-//$result = $jpegify->fromFile($file, null, 100, null, 'scale')->toFile("optimized.jpg");
+$result = $jpegify->fromFile($file, null, 100, null, 'scale')->toFile("optimized.jpg");
 
 //Example #3: Resizing: width:auto height:200  strategy:scale   
-//$result = $jpegify->fromFile($file, null, null, 200, 'scale')->toFile("optimized.jpg");
+$result = $jpegify->fromFile($file, null, null, 200, 'scale')->toFile("optimized.jpg");
 
 //Example #4: Resizing: width:400 height:400  strategy:fit  default filling color:#FFFFFF  
-//$result = $jpegify->fromFile($file, null, 400, 400, 'fit')->toFile("optimized.jpg");
+$result = $jpegify->fromFile($file, null, 400, 400, 'fit')->toFile("optimized.jpg");
 
 //Example #5: Resizing: width:400 height:400  strategy:fit  filling color:#0de01b
-//$result = $jpegify->fromFile($file, null, 400, 400, 'fit:#0de01b')->toFile("optimized.jpg");
+$result = $jpegify->fromFile($file, null, 400, 400, 'fit:#0de01b')->toFile("optimized.jpg");
 
 //Example #6: Resizing: width:640 height:480  strategy:cover
-//$result = $jpegify->fromFile($file, null, 640, 480, 'cover')->toFile("optimized.jpg");
+$result = $jpegify->fromFile($file, null, 640, 480, 'cover')->toFile("optimized.jpg");
 
 ````
 
 ## Usage - Image Buffer
 
-If you want to upload your binary image data directly to Jpegify API use the `$jpegify->fromBuffer()` method. You will need to provide two mandatory parameters in an array - `imagedata` which is the absolute path to the file and `wait` or `callback_url`.
-
-In the `$data` array you will find the same optimization properties as with the `url` option above.
+If you want to upload your binary image data directly to Jpegify API use the `$jpegify->fromBuffer()` method. `$jpegify->fromUrl()->toFile()` method chaining allows you providing source and target in one line. After `$jpegify->fromUrl()` executed, you can call `$jpegify->toFile()` many times. Image will be saved from cache.
 
 ````php
 <?php
@@ -216,19 +213,19 @@ $binaryImageData = file_get_contents($file);
 $result = $jpegify->fromBuffer($binaryImageData)->toFile("optimized.jpg");
 
 //Example #2: Resizing: width:300  height:auto  strategy:scale  
-//$result = $jpegify->fromBuffer($binaryImageData, null, 100, null, 'scale')->toFile("optimized.jpg");
+$result = $jpegify->fromBuffer($binaryImageData, null, 100, null, 'scale')->toFile("optimized.jpg");
 
 //Example #3: Resizing: width:auto height:200  strategy:scale   
-//$result = $jpegify->fromBuffer($binaryImageData, null, null, 200, 'scale')->toFile("optimized.jpg");
+$result = $jpegify->fromBuffer($binaryImageData, null, null, 200, 'scale')->toFile("optimized.jpg");
 
 //Example #4: Resizing: width:400 height:400  strategy:fit  default filling color:#FFFFFF  
-//$result = $jpegify->fromBuffer($binaryImageData, null, 400, 400, 'fit')->toFile("optimized.jpg");
+$result = $jpegify->fromBuffer($binaryImageData, null, 400, 400, 'fit')->toFile("optimized.jpg");
 
 //Example #5: Resizing: width:400 height:400  strategy:fit  filling color:#0de01b
-//$result = $jpegify->fromBuffer($binaryImageData, null, 400, 400, 'fit:#0de01b')->toFile("optimized.jpg");
+$result = $jpegify->fromBuffer($binaryImageData, null, 400, 400, 'fit:#0de01b')->toFile("optimized.jpg");
 
 //Example #6: Resizing: width:640 height:480  strategy:cover
-//$result = $jpegify->fromBuffer($binaryImageData, null, 640, 480, 'cover')->toFile("optimized.jpg");
+$result = $jpegify->fromBuffer($binaryImageData, null, 640, 480, 'cover')->toFile("optimized.jpg");
 
 ````
 
@@ -251,19 +248,19 @@ require_once("Jpegify.com");
 $jpegify = new Jpegify("your-api-key", "your-api-secret");
 
 //Example #1: Resizing: width:300  height:auto  strategy:scale  
-//$result = $jpegify->fromUrl($url, null, 100, null, 'scale')->toFile("optimized.jpg");
+$result = $jpegify->fromUrl($url, null, 100, null, 'scale')->toFile("optimized.jpg");
 
 //Example #2: Resizing: width:auto height:200  strategy:scale   
-//$result = $jpegify->fromUrl($url, null, null, 200, 'scale')->toFile("optimized.jpg");
+$result = $jpegify->fromUrl($url, null, null, 200, 'scale')->toFile("optimized.jpg");
 
 //Example #3: Resizing: width:400 height:400  strategy:fit  default filling color:#FFFFFF  
-//$result = $jpegify->fromUrl($url, null, 400, 400, 'fit')->toFile("optimized.jpg");
+$result = $jpegify->fromUrl($url, null, 400, 400, 'fit')->toFile("optimized.jpg");
 
 //Example #4: Resizing: width:400 height:400  strategy:fit  filling color:#0de01b
-//$result = $jpegify->fromUrl($url, null, 400, 400, 'fit:#0de01b')->toFile("optimized.jpg");
+$result = $jpegify->fromUrl($url, null, 400, 400, 'fit:#0de01b')->toFile("optimized.jpg");
 
 //Example #5: Resizing: width:640 height:480  strategy:cover
-//$result = $jpegify->fromUrl($url, null, 640, 480, 'cover')->toFile("optimized.jpg");
+$result = $jpegify->fromUrl($url, null, 640, 480, 'cover')->toFile("optimized.jpg");
 
 ````
 
