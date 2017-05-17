@@ -1,0 +1,21 @@
+{
+    "name": "jpegify/jpegify-php-client",
+    "description": "Official Jpegify.com SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jpegify Image Optimizer",
+            "email": "support@jpegify.com",
+            "url": "https://jpegify.com"
+        }
+    ],
+    "require": {
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Kraken": "lib"
+        }
+    }
+}
