@@ -53,7 +53,7 @@ The first option (image URL) is great for images that are already in production 
 
 ## Wait and Callback URLe
 
-Jpegify gives you two options for fetching optimization results. With the `wait` option set the results will be returned immediately in the response. With the `callback_url` option set the results will be posted to the URL specified in your request. Callback option will be activated in the future, currenly not supported.
+Jpegify gives you two options for fetching optimization results. With the `wait` option set the results will be returned immediately in the response. With the `callback_url` option set the results will be posted to the URL specified in your request. Callback option will be activated in the future, currently not supported.
 
 ### Wait option
 
@@ -233,7 +233,7 @@ $result = $jpegify->fromBuffer($binaryImageData, null, 640, 480, 'cover')->toFil
 
 When you decide to sacrifice just a small amount of image quality (usually unnoticeable to the human eye), you will be able to save up to 90% of the initial file weight. Lossy optimization will give you outstanding results with just a fraction of image quality loss.
 
-Lossy optimization is default behaviour, no need to any setting.
+Lossy optimization is default behaviour, no need to do anything.
 
 
 ## Image Resizing
