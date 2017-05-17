@@ -13,7 +13,6 @@ $jpegify = new Jpegify("your-api-key", "your-api-scret");
 
 //set your file path
 $file = "set-your-file-here";
-$file = "/Users/orhan/Desktop/images/trendyol/3010000958079_1_org_zoom.jpg";
 
 //Example #1: basic optimization, no resizing
 $result = $jpegify->fromFile($file)->toFile("optimized.jpg");
