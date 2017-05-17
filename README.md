@@ -39,7 +39,7 @@ https://github.com/jpegify/jpegify-php-client/archive/master.zip
 
 ## Getting Started
 
-First you need to sign up for the [Jpegify API](https://jpegify.com/plans-billing) and obtain your unique **API Key** and **API Secret**. You will find both under [API Credentials](https://jpegify.com/account/api-credentials). Once you have set up your account, you can start using Jpegify API in your applications.
+First you need to sign up for the [Jpegify API](https://jpegify.com/plans-billing) and obtain your unique **API Key** and **API Secret**. You will find both under [API Credentials](https://jpegify.com/api-settings). Once you have set up your account, you can start using Jpegify API in your applications.
 
 ## Downloading Images
 
