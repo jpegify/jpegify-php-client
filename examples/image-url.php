@@ -6,7 +6,7 @@
 require_once("../lib/Jpegify.php");
 
 //put your api key and secret. Visit your api key and secret: https://jpegify.com/api-settings
-$jpegify = new Jpegify("your-api-key", "your-api-scret");
+$jpegify = new Jpegify("your-api-key", "your-api-secret");
 
 //run for enabling sandbox. when you developing, enable sandbox to prevent your plan.
 //$jpegify->enableSandbox();
