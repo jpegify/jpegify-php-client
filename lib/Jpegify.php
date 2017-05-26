@@ -48,32 +48,32 @@ class Jpegify {
 
     public function toFile($filename)
     {
-        if($this->optimizedData && isset($this->optimizedData['download_url']) && $this->optimizedData['download_url']){
-            $this->fileDownload( $this->optimizedData['download_url'], $filename);
-            return $this->optimizedData;
+        if(isset($this->optimizedData[$filename]['download_url']) && $this->optimizedData[$filename]['download_url']){
+            $this->fileDownload($this->optimizedData[$filename]['download_url'], $filename);
+            return $this->optimizedData[$filename];
         }
 
         if(isset($this->optimizeParams['file'])){
-            $this->optimizedData = $this->fileUploader();
-            if(isset($this->optimizedData['download_url']) && $this->optimizedData['download_url'] )
-                $this->fileDownload( $this->optimizedData['download_url'], $filename);
-            return $this->optimizedData;
+            $this->optimizedData[$filename] = $this->fileUploader();
+            if(isset($this->optimizedData[$filename]['download_url']) && $this->optimizedData[$filename]['download_url'] )
+                $this->fileDownload($this->optimizedData[$filename]['download_url'], $filename);
+            return $this->optimizedData[$filename];
         }
 
         if(isset($this->optimizeParams['url'])){
             $data = json_encode(array_merge($this->auth, $this->optimizeParams));
-            $this->optimizedData = $this->callApi($data, $this->apiUrl . 'fromurl', 'url');
-            if(isset($this->optimizedData['download_url']) && $this->optimizedData['download_url'] )
-                $this->fileDownload( $this->optimizedData['download_url'], $filename);
-            return $this->optimizedData;                  
+            $this->optimizedData[$filename] = $this->callApi($data, $this->apiUrl . 'fromurl', 'url');
+            if(isset($this->optimizedData[$filename]['download_url']) && $this->optimizedData[$filename]['download_url'] )
+                $this->fileDownload($this->optimizedData[$filename]['download_url'], $filename);
+            return $this->optimizedData[$filename];                  
         }
 
         if(isset($this->optimizeParams['base64'])){
             $data = json_encode(array_merge($this->auth, $this->optimizeParams));
-            $this->optimizedData = $this->callApi($data, $this->apiUrl . 'frombuffer', 'url');
-            if(isset($this->optimizedData['download_url']) && $this->optimizedData['download_url'] )
-                $this->fileDownload( $this->optimizedData['download_url'], $filename);
-            return $this->optimizedData;                  
+            $this->optimizedData[$filename] = $this->callApi($data, $this->apiUrl . 'frombuffer', 'url');
+            if(isset($this->optimizedData[$filename]['download_url']) && $this->optimizedData[$filename]['download_url'] )
+                $this->fileDownload($this->optimizedData[$filename]['download_url'], $filename);
+            return $this->optimizedData[$filename];                  
         }
 
         return [
